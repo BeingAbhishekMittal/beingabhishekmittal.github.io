@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ============================================================= -->
+<!-- EDIT ME: page title + description (shows in browser tab & SEO) -->
+<!-- ============================================================= -->
+<title>Abhishek Mittal — Data &amp; Analytics Architect</title>
+<meta name="description" content="Abhishek Mittal — Data &amp; Analytics Architect and Snowflake Data Superhero 2026. Data strategy, Snowflake &amp; Azure architecture, Microsoft Fabric, MDM, and analytics consulting." />
+
+<meta property="og:title" content="Abhishek Mittal — Data &amp; Analytics Architect" />
+<meta property="og:description" content="Snowflake Data Superhero 2026. Book a consulting session." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --ink:#FBFAF7;
+  --ink-2:#F4F1EA;
+  --surface:#ffffff00;
+  --panel:#FFFFFF;
+  --panel-2:#F6F3EC;
+  --line:rgba(30,42,58,.09);
+  --line-strong:rgba(30,42,58,.16);
+  --paper:#1B2530;
+  --paper-dim:#5D6A77;
+  --paper-faint:#93A0AD;
+  --cyan:#0C84A0;
+  --cyan-deep:#076680;
+  --cyan-soft:rgba(12,132,160,.08);
+  --amber:#B5701F;
+  --shadow-sm:0 1px 2px rgba(20,32,55,.04);
+  --shadow:0 10px 28px rgba(20,32,55,.06);
+  --shadow-lg:0 24px 56px rgba(20,32,55,.10);
+  --maxw:1180px;
+  --r:14px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:'Hanken Grotesk',system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.65;
+  font-weight:400;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--cyan);color:#fff}
+
+/* ---------- atmospheric background ---------- */
+.bg{position:fixed;inset:0;z-index:-2;pointer-events:none}
+.bg .glow{
+  position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;
+}
+.bg .g1{top:-12%;left:-8%;width:46vw;height:46vw;background:radial-gradient(circle,rgba(12,132,160,.10),transparent 70%)}
+.bg .g2{bottom:-18%;right:-10%;width:52vw;height:52vw;background:radial-gradient(circle,rgba(90,130,255,.06),transparent 70%)}
+.bg .grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(30,42,58,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(30,42,58,.045) 1px,transparent 1px);
+  background-size:54px 54px;
+  mask-image:radial-gradient(ellipse 90% 70% at 50% 30%,#000 30%,transparent 100%);
+  -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 30%,#000 30%,transparent 100%);
+}
+.grain{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.02;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- layout ---------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+section{position:relative;padding:64px 0}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);
+  display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--cyan);opacity:.7}
+h2.title{
+  font-family:'Fraunces',serif;font-weight:400;font-size:clamp(2rem,4.6vw,3.4rem);
+  line-height:1.05;letter-spacing:-.02em;margin:18px 0 0;max-width:18ch;
+}
+.lead{color:var(--paper-dim);font-size:1.05rem;max-width:60ch;margin-top:18px}
+
+/* ---------- header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  transition:background .4s var(--ease),border-color .4s var(--ease),backdrop-filter .4s;
+  border-bottom:1px solid transparent;
+}
+header.scrolled{
+  background:rgba(251,250,247,.82);backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid var(--line);
+}
+.nav{max-width:var(--maxw);margin:0 auto;padding:18px 28px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:11px;font-family:'JetBrains Mono',monospace;font-weight:600;letter-spacing:.02em;font-size:15px}
+.brand .mark{
+  width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--cyan),var(--cyan-deep));color:#fff;
+  font-family:'Fraunces',serif;font-weight:600;font-size:17px;
+  box-shadow:0 0 0 1px rgba(12,132,160,.3),0 8px 20px rgba(12,132,160,.2);
+}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:14.5px;color:var(--paper-dim);transition:color .25s;position:relative}
+.nav-links a:hover{color:var(--paper)}
+.nav-links a.cta{
+  color:#fff;background:var(--cyan);padding:9px 18px;border-radius:999px;font-weight:600;
+  transition:transform .25s var(--ease),box-shadow .25s;
+}
+.nav-links a.cta:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(12,132,160,.26)}
+.burger{display:none;background:none;border:1px solid var(--line-strong);border-radius:9px;padding:9px 11px;cursor:pointer}
+.burger span{display:block;width:18px;height:2px;background:var(--paper);margin:3px 0;transition:.3s}
+
+/* ---------- hero ---------- */
+.hero{padding:140px 0 60px;min-height:80vh;display:flex;align-items:center;position:relative}
+#node-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.55}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.status{
+  display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;
+  font-size:12.5px;letter-spacing:.04em;color:var(--paper-dim);
+  border:1px solid var(--line-strong);border-radius:999px;padding:7px 15px;background:rgba(255,255,255,.65);
+}
+.status .dot{width:8px;height:8px;border-radius:50%;background:#39E6A0;box-shadow:0 0 0 0 rgba(57,230,160,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(57,230,160,.5)}70%{box-shadow:0 0 0 9px rgba(57,230,160,0)}100%{box-shadow:0 0 0 0 rgba(57,230,160,0)}}
+.hero h1{
+  font-family:'Fraunces',serif;font-weight:300;
+  font-size:clamp(2.9rem,7.5vw,6rem);line-height:.98;letter-spacing:-.03em;
+  margin:26px 0 0;
+}
+.hero h1 .accent{font-style:italic;font-weight:400;color:var(--cyan)}
+.role{
+  font-family:'JetBrains Mono',monospace;font-size:clamp(.85rem,1.6vw,1.05rem);
+  letter-spacing:.04em;color:var(--paper-dim);margin-top:22px;
+}
+.role b{color:var(--paper);font-weight:500}
+.hero p.intro{max-width:54ch;color:var(--paper-dim);font-size:1.15rem;margin-top:26px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;
+  font-weight:600;font-size:15px;cursor:pointer;border:1px solid transparent;
+  transition:transform .25s var(--ease),box-shadow .25s,background .25s,border-color .25s;
+}
+.btn-primary{background:var(--cyan);color:#fff;box-shadow:0 10px 30px rgba(12,132,160,.2)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(12,132,160,.28)}
+.btn-ghost{background:transparent;color:var(--paper);border-color:var(--line-strong)}
+.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-3px)}
+.btn svg{width:16px;height:16px}
+
+/* stat strip */
+.stats{display:flex;flex-wrap:wrap;gap:46px;margin-top:48px;padding-top:28px;border-top:1px solid var(--line)}
+.stat .num{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:400;line-height:1;color:var(--paper)}
+.stat .num .u{color:var(--cyan);font-size:1.6rem}
+.stat .lbl{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--paper-faint);margin-top:9px}
+
+/* ---------- ticker ---------- */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;overflow:hidden;background:rgba(255,255,255,.55)}
+.ticker-track{display:flex;gap:54px;white-space:nowrap;width:max-content;animation:scroll 34s linear infinite;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--paper-faint);letter-spacing:.05em}
+.ticker-track span{display:inline-flex;align-items:center;gap:54px}
+.ticker-track span::after{content:"◆";color:var(--cyan);opacity:.55}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.ticker:hover .ticker-track{animation-play-state:paused}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:start}
+.about-body p{color:var(--paper-dim);margin-top:20px;font-size:1.08rem}
+.about-body p:first-child{margin-top:28px;color:var(--paper);font-size:1.2rem;font-family:'Fraunces',serif;font-weight:300;line-height:1.5}
+.facts{border:1px solid var(--line);border-radius:var(--r);padding:30px;background:linear-gradient(180deg,var(--panel),transparent)}
+.fact{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.fact:last-child{border-bottom:none;padding-bottom:0}
+.fact:first-child{padding-top:0}
+.fact .k{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-faint)}
+.fact .v{text-align:right;color:var(--paper);font-weight:500;font-size:14.5px}
+
+/* ---------- expertise ---------- */
+.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.exp-card{
+  border:1px solid var(--line);border-radius:var(--r);padding:28px;background:var(--panel);
+  transition:transform .35s var(--ease),border-color .35s,background .35s;position:relative;overflow:hidden;
+}
+.exp-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.exp-card:hover{transform:translateY(-5px);border-color:var(--line-strong);background:var(--panel-2)}
+.exp-card:hover::before{transform:scaleX(1)}
+.exp-card .ico{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-size:13px;letter-spacing:.1em}
+.exp-card h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.35rem;margin:14px 0 12px}
+.exp-card .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.exp-card .tags span{font-size:12.5px;font-family:'JetBrains Mono',monospace;color:var(--paper-dim);border:1px solid var(--line);border-radius:7px;padding:5px 10px;background:rgba(20,32,55,.025)}
+
+/* ---------- services ---------- */
+.svc-list{margin-top:40px;border-top:1px solid var(--line)}
+.svc{
+  display:grid;grid-template-columns:64px 1.2fr 2fr auto;gap:28px;align-items:center;
+  padding:30px 6px;border-bottom:1px solid var(--line);transition:background .3s,padding .3s var(--ease);
+}
+.svc:hover{background:linear-gradient(90deg,var(--cyan-soft),transparent);padding-left:18px}
+.svc .no{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-size:14px}
+.svc h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.5rem;line-height:1.1}
+.svc p{color:var(--paper-dim);font-size:.98rem}
+.svc .arrow{justify-self:end;width:42px;height:42px;border-radius:50%;border:1px solid var(--line-strong);display:grid;place-items:center;transition:.3s}
+.svc:hover .arrow{background:var(--cyan);border-color:var(--cyan);color:#fff;transform:rotate(-45deg)}
+.svc .arrow svg{width:17px;height:17px}
+
+/* ---------- work ---------- */
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:40px}
+.case{
+  border:1px solid var(--line);border-radius:18px;padding:34px;background:var(--panel);
+  position:relative;overflow:hidden;transition:transform .4s var(--ease),border-color .4s;
+}
+.case:hover{transform:translateY(-6px);border-color:var(--line-strong)}
+.case .meta{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--paper-faint);text-transform:uppercase}
+.case h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.6rem;margin:14px 0 14px;line-height:1.15}
+.case p{color:var(--paper-dim);font-size:.98rem}
+.case .metric{display:flex;gap:34px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+.case .metric .m .mv{font-family:'Fraunces',serif;font-size:1.9rem;color:var(--cyan)}
+.case .metric .m .ml{font-size:11.5px;font-family:'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--paper-faint);margin-top:4px}
+.case .stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
+.case .stack span{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--paper-dim);border:1px solid var(--line);border-radius:6px;padding:4px 9px}
+
+/* ---------- experience timeline ---------- */
+.timeline{margin-top:40px;position:relative;padding-left:30px}
+.timeline::before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,var(--cyan),var(--line) 60%,transparent)}
+.tl-item{position:relative;padding:0 0 44px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-29px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--ink);border:2px solid var(--cyan)}
+.tl-item .when{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.06em;color:var(--cyan)}
+.tl-item h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.4rem;margin:8px 0 3px}
+.tl-item .co{color:var(--paper-dim);font-size:.95rem;margin-bottom:10px}
+.tl-item p{color:var(--paper-dim);font-size:.98rem;max-width:62ch}
+
+/* ---------- credentials ---------- */
+.creds{display:flex;flex-wrap:wrap;gap:16px;margin-top:36px}
+.cred{
+  display:flex;align-items:center;gap:16px;border:1px solid var(--line);border-radius:var(--r);
+  padding:20px 24px;background:var(--panel);flex:1 1 280px;transition:border-color .3s,transform .3s var(--ease)
+}
+.cred:hover{border-color:var(--line-strong);transform:translateY(-3px)}
+.cred .badge{
+  width:46px;height:46px;border-radius:11px;flex-shrink:0;display:grid;place-items:center;
+  background:radial-gradient(circle at 30% 25%,rgba(12,132,160,.15),rgba(12,132,160,.03));
+  border:1px solid var(--line-strong);font-size:22px;
+}
+.cred .ct{font-family:'Fraunces',serif;font-size:1.1rem}
+.cred .cs{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--paper-faint);letter-spacing:.05em;margin-top:2px}
+
+/* ---------- booking ---------- */
+.book{background:linear-gradient(180deg,transparent,rgba(30,42,58,.035))}
+.book-card{
+  border:1px solid var(--line-strong);border-radius:22px;overflow:hidden;margin-top:36px;
+  background:linear-gradient(155deg,var(--panel-2),var(--panel));
+}
+.book-head{padding:32px 40px 22px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;border-bottom:1px solid var(--line)}
+.book-head h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.9rem;line-height:1.1}
+.book-head p{color:var(--paper-dim);margin-top:8px;font-size:.98rem}
+.book-perks{display:flex;flex-direction:column;gap:11px;font-size:14px;color:var(--paper-dim)}
+.book-perks div{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:12.5px}
+.book-perks .ck{color:var(--cyan)}
+#booking-embed{width:100%}
+#booking-embed:not(:empty){min-height:480px}
+.book-fallback{padding:46px 40px;text-align:center}
+.book-fallback .ph{
+  font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--paper-faint);
+  border:1px dashed var(--line-strong);border-radius:12px;padding:38px 24px;margin-bottom:26px;line-height:1.8
+}
+.book-fallback .ph b{color:var(--cyan)}
+
+/* ---------- footer ---------- */
+footer{padding:60px 0 40px;border-top:1px solid var(--line);margin-top:24px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px}
+.foot-grid h4{font-family:'Fraunces',serif;font-weight:400;font-size:2rem;line-height:1.1;max-width:14ch}
+.foot-grid .e{color:var(--paper-dim);margin-top:18px;font-size:1.05rem}
+.foot-col .ch{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-faint);margin-bottom:18px}
+.foot-col a{display:block;color:var(--paper-dim);padding:7px 0;transition:color .25s;font-size:15px}
+.foot-col a:hover{color:var(--cyan)}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-top:48px;padding-top:26px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--paper-faint)}
+
+/* ---------- reveal animation ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.hero .stagger{opacity:0;transform:translateY(20px);animation:rise .9s var(--ease) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-links.open{
+    display:flex;flex-direction:column;position:absolute;top:72px;left:14px;right:14px;
+    background:rgba(251,250,247,.97);backdrop-filter:blur(16px);border:1px solid var(--line-strong);box-shadow:var(--shadow-lg);
+    border-radius:16px;padding:22px;gap:18px;align-items:flex-start
+  }
+  .burger{display:block}
+  .about-grid{grid-template-columns:1fr;gap:36px}
+  .exp-grid{grid-template-columns:1fr}
+  .work-grid{grid-template-columns:1fr}
+  .svc{grid-template-columns:34px 1fr;gap:14px}
+  .svc p,.svc .arrow{display:none}
+  .foot-grid{grid-template-columns:1fr}
+  .book-head{grid-template-columns:1fr}
+  section{padding:48px 0}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+  #node-canvas{display:none}
+}
+/* ---------- light-theme depth ---------- */
+.facts,.exp-card,.case,.cred{box-shadow:var(--shadow-sm),var(--shadow)}
+.exp-card:hover,.case:hover,.cred:hover{box-shadow:var(--shadow-sm),var(--shadow-lg)}
+.book-card{box-shadow:var(--shadow-lg)}
+header.scrolled{box-shadow:0 1px 0 var(--line),0 8px 30px rgba(20,32,55,.04)}
+
+/* ---------- portrait ---------- */
+.portrait{
+  width:100%;max-width:340px;aspect-ratio:4/5;border-radius:18px;overflow:hidden;position:relative;
+  border:1px solid var(--line-strong);background:linear-gradient(160deg,var(--panel-2),var(--panel));
+  box-shadow:var(--shadow-sm),var(--shadow);margin-bottom:26px;
+}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.portrait .ph{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  color:var(--paper-faint);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;
+  text-align:center;padding:24px;border:1px dashed var(--line-strong);border-radius:18px;margin:10px;
+}
+.portrait .ph svg{width:44px;height:44px;opacity:.5}
+
+/* ---------- writing ---------- */
+.posts{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px}
+.post{
+  border:1px solid var(--line);border-radius:var(--r);padding:26px 28px;background:var(--panel);
+  display:flex;flex-direction:column;gap:10px;transition:transform .35s var(--ease),border-color .35s,box-shadow .35s;
+  box-shadow:var(--shadow-sm),var(--shadow);position:relative;
+}
+.post:hover{transform:translateY(-5px);border-color:var(--line-strong);box-shadow:var(--shadow-sm),var(--shadow-lg)}
+.post .pm{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan)}
+.post h3{font-family:'Fraunces',serif;font-weight:400;font-size:1.3rem;line-height:1.2}
+.post p{color:var(--paper-dim);font-size:.95rem}
+.post .pr{margin-top:auto;padding-top:10px;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--paper-faint);display:flex;align-items:center;gap:8px}
+.post:hover .pr{color:var(--cyan)}
+.posts-cta{margin-top:30px}
+@media(max-width:900px){.posts{grid-template-columns:1fr}.portrait{max-width:100%}}
+</style>
+</head>
+<body>
+
+<div class="bg">
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+  <div class="grid"></div>
+</div>
+<div class="grain"></div>
+
+<!-- ============================ HEADER ============================ -->
+<header id="header">
+  <nav class="nav">
+    <!-- EDIT ME: brand mark letter + name -->
+    <a href="#top" class="brand"><span class="mark">A</span> Abhishek Mittal</a>
+    <div class="nav-links" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#writing">Writing</a>
+      <a href="#book" class="cta">Book a session</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="top">
+  <canvas id="node-canvas" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="status stagger" style="animation-delay:.05s"><span class="dot"></span> Available for consulting &amp; advisory</div>
+
+    <!-- EDIT ME: your name -->
+    <h1 class="stagger" style="animation-delay:.15s">Abhishek Mittal —<br><span class="accent">architecting</span> data that scales.</h1>
+
+    <div class="role stagger" style="animation-delay:.28s">
+      <b>Strategic Data &amp; Analytics Architect &nbsp;||&nbsp; Snowflake Data Superhero 2026 ❄</b>
+    </div>
+
+    <!-- EDIT ME: your one-paragraph pitch -->
+    <p class="intro stagger" style="animation-delay:.4s">
+      Over 12 years turning complex business needs into clean, governed data platforms —
+      specializing in Snowflake, Microsoft Azure, Databricks, and Microsoft Fabric, from data
+      strategy and discovery workshops through to end-to-end implementation.
+    </p>
+
+    <div class="cta-row stagger" style="animation-delay:.52s">
+      <a href="#book" class="btn btn-primary">
+        Book a session
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#work" class="btn btn-ghost">See selected work</a>
+    </div>
+
+    <div class="stats stagger" style="animation-delay:.64s">
+      <!-- EDIT ME: your headline numbers -->
+      <div class="stat"><div class="num">12<span class="u">+</span></div><div class="lbl">Years in data</div></div>
+      <div class="stat"><div class="num">20<span class="u">+</span></div><div class="lbl">Certifications</div></div>
+      <div class="stat"><div class="num">15<span class="u">+</span></div><div class="lbl">Workshops conducted</div></div>
+      <div class="stat"><div class="num">10<span class="u">+</span></div><div class="lbl">Platforms delivered</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TICKER ============================ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <!-- EDIT ME: your stack -->
+    <span>Snowflake&nbsp;&nbsp;Databricks&nbsp;&nbsp;Microsoft Fabric&nbsp;&nbsp;Azure Data Factory&nbsp;&nbsp;Azure Synapse&nbsp;&nbsp;Power BI&nbsp;&nbsp;Azure Data Lake&nbsp;&nbsp;Informatica IDMC&nbsp;&nbsp;Azure Purview&nbsp;&nbsp;SQL Server&nbsp;&nbsp;SSIS&nbsp;&nbsp;Qlik Sense&nbsp;&nbsp;AWS Redshift&nbsp;&nbsp;BigQuery&nbsp;&nbsp;MDM</span>
+    <span>Snowflake&nbsp;&nbsp;Databricks&nbsp;&nbsp;Microsoft Fabric&nbsp;&nbsp;Azure Data Factory&nbsp;&nbsp;Azure Synapse&nbsp;&nbsp;Power BI&nbsp;&nbsp;Azure Data Lake&nbsp;&nbsp;Informatica IDMC&nbsp;&nbsp;Azure Purview&nbsp;&nbsp;SQL Server&nbsp;&nbsp;SSIS&nbsp;&nbsp;Qlik Sense&nbsp;&nbsp;AWS Redshift&nbsp;&nbsp;BigQuery&nbsp;&nbsp;MDM</span>
+  </div>
+</div>
+
+<!-- ============================ ABOUT ============================ -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-body reveal">
+        <span class="eyebrow">About</span>
+        <h2 class="title">A data architect who turns strategy into working platforms.</h2>
+        <!-- EDIT ME: your story -->
+        <p>I help teams build data platforms that actually work for the business, not just tick off a bunch of technical requirements.</p>
+        <p>I have over twelve years designing and implementing data engineering and analytics solutions across Microsoft Azure, Snowflake, Databricks, Microsoft Fabric, and Power BI — for clients spanning the Middle East, Europe, South-East Asia, Oceania and the US.</p>
+        <p>I work end-to-end: running discovery and assessment workshops to define data strategy roadmaps, then architecting and delivering the platforms that bring them to life — data lakehouses, cloud warehouses, master data management, and self-service analytics that teams actually trust.</p>
+        <p>I take on a focused set of consulting engagements — data strategy, architecture, Snowflake and Azure builds, migrations, and MDM — for teams that want senior architectural judgment without a senior headcount.</p>
+      </div>
+      <aside class="reveal">
+        <!-- ====================================================== -->
+        <!-- YOUR PHOTO: replace the placeholder below with         -->
+        <!--   <img src="profile.jpg" alt="Abhishek Mittal" />      -->
+        <!-- and upload profile.jpg to the same repo folder.        -->
+        <!-- A 4:5 portrait (e.g. 800x1000px) looks best.           -->
+        <!-- ====================================================== -->
+        <div class="portrait">
+          <div class="ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg>
+            YOUR PHOTO HERE<br>replace with &lt;img src="profile.jpg"&gt;
+          </div>
+        </div>
+        <div class="facts">
+        <!-- EDIT ME: quick facts -->
+        <div class="fact"><span class="k">Based in</span><span class="v">Dubai, UAE · Remote</span></div>
+        <div class="fact"><span class="k">Focus</span><span class="v">Snowflake · Azure · Fabric · Databricks</span></div>
+        <div class="fact"><span class="k">Engagements</span><span class="v">Strategy · Architecture · Delivery</span></div>
+        <div class="fact"><span class="k">Education</span><span class="v">B.Tech, Computer Science</span></div>
+        <div class="fact"><span class="k">Languages</span><span class="v">English, Hindi</span></div>
+        <div class="fact"><span class="k">Response time</span><span class="v">Within 24 hours</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ EXPERTISE ============================ -->
+<section id="expertise">
+  <div class="wrap">
+    <span class="eyebrow reveal">Expertise</span>
+    <h2 class="title reveal">Deep across the modern data stack.</h2>
+    <div class="exp-grid">
+      <!-- EDIT ME: capability cards -->
+      <div class="exp-card reveal"><div class="ico">{ 01 }</div><h3>Data Architecture</h3><div class="tags"><span>Data Lakehouse</span><span>Medallion</span><span>Dimensional</span><span>Data warehousing</span><span>Data mesh</span><span>Semantic layers</span></div></div>
+      <div class="exp-card reveal"><div class="ico">{ 02 }</div><h3>Snowflake Data Cloud</h3><div class="tags"><span>Architecture</span><span>Security &amp; RBAC</span><span>Performance</span><span>Data sharing</span><span>Cortex</span><span>CoCo</span></div></div>
+      <div class="exp-card reveal"><div class="ico">{ 03 }</div><h3>Azure &amp; Microsoft Fabric</h3><div class="tags"><span>Data Factory</span><span>Synapse</span><span>Fabric</span><span>Databricks</span><span>Direct Lake</span></div></div>
+      <div class="exp-card reveal"><div class="ico">{ 04 }</div><h3>Data Engineering</h3><div class="tags"><span>ADF</span><span>PySpark</span><span>SSIS</span><span>ETL/ELT frameworks</span><span>Automation</span></div></div>
+      <div class="exp-card reveal"><div class="ico">{ 05 }</div><h3>BI &amp; Analytics</h3><div class="tags"><span>Power BI</span><span>Qlik Sense</span><span>Self-service BI</span><span>Semantic models</span></div></div>
+      <div class="exp-card reveal"><div class="ico">{ 06 }</div><h3>Governance &amp; MDM</h3><div class="tags"><span>Master Data Mgmt</span><span>Azure Purview</span><span>Informatica IDMC</span><span>Semarchy xDM</span><span>Data stewardship</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SERVICES ============================ -->
+<section id="services">
+  <div class="wrap">
+    <span class="eyebrow reveal">Services</span>
+    <h2 class="title reveal">How we can work together.</h2>
+    <p class="lead reveal">Pick the engagement that fits — or book a session and we'll figure out the right shape.</p>
+    <div class="svc-list">
+      <!-- EDIT ME: your service offerings -->
+      <a href="#book" class="svc reveal"><span class="no">S—01</span><h3>Data Strategy &amp; Discovery</h3><p>Discovery and assessment workshops that map your data landscape and produce a clear, prioritized roadmap.</p><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a href="#book" class="svc reveal"><span class="no">S—02</span><h3>Data Platform Architecture</h3><p>End-to-end platform design on Snowflake, Azure, Microsoft Fabric, or Databricks.</p><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a href="#book" class="svc reveal"><span class="no">S—03</span><h3>Snowflake Architecture &amp; Security</h3><p>Architecture reviews, Agentic enablement, RBAC and security design, and performance tuning.</p><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a href="#book" class="svc reveal"><span class="no">S—04</span><h3>Migration &amp; Modernization</h3><p>Move legacy warehouses and reports to the modern stack — including large-scale Qlik-to-Power BI migrations.</p><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a href="#book" class="svc reveal"><span class="no">S—05</span><h3>Master Data Management</h3><p>Custom MDM frameworks and data stewardship workflows that build a reliable golden record across systems.</p><span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ WORK ============================ -->
+<section id="work">
+  <div class="wrap">
+    <span class="eyebrow reveal">Selected Work</span>
+    <h2 class="title reveal">Outcomes, not just outputs.</h2>
+    <div class="work-grid">
+      <article class="case reveal">
+        <div class="meta">Public Sector · Azure + Databricks</div>
+        <h3>Data platform feeding an environmental digital twin</h3>
+        <p>Architected an end-to-end Azure &amp; Databricks lakehouse ingesting relational systems, geo-databases, satellite imagery, and external APIs — even generating raster images from structured data — cataloged with Informatica IDMC.</p>
+        <div class="metric">
+          <div class="m"><div class="mv">Geo + Satellite</div><div class="ml">Data sources fused</div></div>
+          <div class="m"><div class="mv">Lakehouse</div><div class="ml">Architecture pattern</div></div>
+        </div>
+        <div class="stack"><span>Azure Data Factory</span><span>Databricks</span><span>ADLS</span><span>Informatica IDMC</span></div>
+      </article>
+
+      <article class="case reveal">
+        <div class="meta">Manufacturing · Microsoft Fabric</div>
+        <h3>Centralized platform on Microsoft Fabric</h3>
+        <p>Designed a centralized data platform for a global locking-solutions company — ingesting ERP, relational, and spreadsheet data, with Direct Lake semantic models, Azure Purview governance, and a self-service Power BI layer.</p>
+        <div class="metric">
+          <div class="m"><div class="mv">Direct Lake</div><div class="ml">Semantic models</div></div>
+          <div class="m"><div class="mv">Self-serve</div><div class="ml">Analytics enabled</div></div>
+        </div>
+        <div class="stack"><span>Microsoft Fabric</span><span>Azure Purview</span><span>Power BI</span></div>
+      </article>
+
+      <article class="case reveal">
+        <div class="meta">Supply Chain · Snowflake + Power BI</div>
+        <h3>Supply chain data analytics using Snowflake</h3>
+        <p>Built a Snowflake-on-Azure data warehouse for a Middle East supply-chain group, with a custom MDM for Item and Customer master data across sister companies, stewardship workflows, CI/CD, and a track &amp; trace use case.</p>
+        <div class="metric">
+          <div class="m"><div class="mv">Custom MDM</div><div class="ml">Across group companies</div></div>
+          <div class="m"><div class="mv">Track &amp; Trace</div><div class="ml">Use case delivered</div></div>
+        </div>
+        <div class="stack"><span>Snowflake</span><span>Azure Data Factory</span><span>Power BI</span><span>Power Automate</span></div>
+      </article>
+
+      <article class="case reveal">
+        <div class="meta">Real Estate · Migration</div>
+        <h3>600+ Qlik reports migrated to Power BI</h3>
+        <p>Led an enterprise data warehouse build on Azure Synapse with an Analysis Services semantic layer, migrating 600+ Qlik Sense reports to Power BI and standing up a custom MDM framework and CI/CD.</p>
+        <div class="metric">
+          <div class="m"><div class="mv">600+</div><div class="ml">Reports migrated</div></div>
+          <div class="m"><div class="mv">Synapse</div><div class="ml">Enterprise warehouse</div></div>
+        </div>
+        <div class="stack"><span>Azure Synapse</span><span>Analysis Services</span><span>Azure Data Factory</span><span>Power BI</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ EXPERIENCE ============================ -->
+<section id="experience">
+  <div class="wrap">
+    <span class="eyebrow reveal">Experience</span>
+    <h2 class="title reveal">A track record across the stack.</h2>
+    <div class="timeline">
+      <!-- EDIT ME: confirm employer names / exact titles & dates -->
+      <div class="tl-item reveal"><div class="when">2018 — Present</div><h3>Associate Distinguished Engineer @ Nagarro</h3><div class="co">Architecting cloud data platforms for global clients</div><p>Leading architecture designs and implementations of end-to-end data platforms on Azure, Snowflake, Databricks, and Microsoft Fabric — from proposal and discovery through delivery, governance, and MDM.</p></div>
+      <div class="tl-item reveal"><div class="when">2017 — 2018</div><h3>Senior Software Engineer @ Espire Infolabs</h3><div class="co">Building enterprise data platforms and BI solutions</div><p>Designed cloud data warehouses on MS Azure and reporting solutions on Power BI. Implemented end-to-end solutions for customers in UK and US.</p></div>
+      <div class="tl-item reveal"><div class="when">2013 — 2018</div><h3>Application Development Analyst @ Accenture</h3><div class="co">Building MSBI solutions for Insurance client</div><p>Delivered end-to-end BI solutions with SQL Server, SSIS, and SSRS. Provided support to the customers.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CREDENTIALS ============================ -->
+<section id="credentials">
+  <div class="wrap">
+    <span class="eyebrow reveal">Credentials</span>
+    <h2 class="title reveal">Recognized expertise.</h2>
+    <div class="creds">
+      <!-- EDIT ME: your certifications & recognition -->
+      <div class="cred reveal"><div class="badge">❄</div><div><div class="ct">Snowflake Data Superhero</div><div class="cs">SNOWFLAKE · 2026</div></div></div>
+      <div class="cred reveal"><div class="badge">🏔</div><div><div class="ct">SnowPro Advanced: Architect</div><div class="cs">+ DATA ENGINEER · SECURITY ENGINEER</div></div></div>
+      <div class="cred reveal"><div class="badge">☁</div><div><div class="ct">Azure Solutions Architect Expert</div><div class="cs">MICROSOFT CERTIFIED</div></div></div>
+      <div class="cred reveal"><div class="badge">🧩</div><div><div class="ct">Fabric Analytics Engineer</div><div class="cs">MICROSOFT CERTIFIED · ASSOCIATE</div></div></div>
+      <div class="cred reveal"><div class="badge">🛠</div><div><div class="ct">Azure Data Engineer</div><div class="cs">MICROSOFT CERTIFIED · ASSOCIATE</div></div></div>
+      <div class="cred reveal"><div class="badge">🎓</div><div><div class="ct">Microsoft Certified Trainer</div><div class="cs">+ 13 CERTIFICATIONS IN TOTAL</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ WRITING ============================ -->
+<section id="writing">
+  <div class="wrap">
+    <span class="eyebrow reveal">Writing</span>
+    <h2 class="title reveal">Latest from the blog.</h2>
+    <p class="lead reveal">I write regularly on Medium about Snowflake, data architecture, and AI in the data stack.</p>
+    <div class="posts">
+      <!-- EDIT ME: swap these 4 featured articles anytime (title, blurb, link, date) -->
+      <a class="post reveal" href="https://medium.com/@beingabhishekmittal/the-architects-playbook-for-snowflake-data-clean-rooms-e3c612afb004" target="_blank" rel="noopener">
+        <span class="pm">Snowflake · Collaboration</span>
+        <h3>The architect's playbook for Snowflake Data Clean Rooms</h3>
+        <p>A hands-on journey through secure data collaboration.</p>
+        <span class="pr">Read on Medium ↗</span>
+      </a>
+      <a class="post reveal" href="https://medium.com/@beingabhishekmittal/cortex-needs-context-the-missing-link-in-your-snowflake-ai-strategy-95dda362354c" target="_blank" rel="noopener">
+        <span class="pm">Snowflake · Cortex AI</span>
+        <h3>Cortex needs context: The missing link in your Snowflake AI strategy</h3>
+        <p>Why semantic context decides whether your AI answers are confident — or correct.</p>
+        <span class="pr">Read on Medium ↗</span>
+      </a>
+      <a class="post reveal" href="https://medium.com/@beingabhishekmittal/write-once-query-anywhere-building-a-hybrid-data-mesh-with-snowflake-and-databricks-743400f65dc7" target="_blank" rel="noopener">
+        <span class="pm">Architecture · Data Mesh</span>
+        <h3>Write once, query anywhere: A hybrid data mesh with Snowflake and Databricks</h3>
+        <p>Large enterprises rarely run a single data platform — and they shouldn't have to.</p>
+        <span class="pr">Read on Medium ↗</span>
+      </a>
+      <a class="post reveal" href="https://medium.com/@beingabhishekmittal/guardrails-not-guesswork-the-complete-guide-to-cortex-guard-and-enterprise-ai-safety-8076e9405575" target="_blank" rel="noopener">
+        <span class="pm">AI Safety · Cortex Guard</span>
+        <h3>Guardrails, not guesswork: Cortex Guard and enterprise AI safety</h3>
+        <p>What changes when your AI application moves from demo to production.</p>
+        <span class="pr">Read on Medium ↗</span>
+      </a>
+    </div>
+    <div class="posts-cta reveal">
+      <a href="https://medium.com/@beingabhishekmittal" target="_blank" rel="noopener" class="btn btn-ghost">All articles on Medium
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ BOOKING ============================ -->
+<section id="book" class="book">
+  <div class="wrap">
+    <span class="eyebrow reveal">Let's talk</span>
+    <h2 class="title reveal">Book a consulting session.</h2>
+    <p class="lead reveal">Pick a time that works for you. We'll talk through your data challenges and figure out how I can help — no pressure, no sales script.</p>
+
+    <div class="book-card reveal">
+      <div class="book-head">
+        <div>
+          <h3>Free 30-minute discovery call</h3>
+          <p>Tell me what you're wrestling with. You'll leave with at least one concrete idea, whether or not we work together.</p>
+        </div>
+        <div class="book-perks">
+          <div><span class="ck">✓</span> Video or phone</div>
+          <div><span class="ck">✓</span> Calendar invite auto-sent</div>
+          <div><span class="ck">✓</span> Reschedule anytime</div>
+        </div>
+      </div>
+
+      <!-- ===================================================================== -->
+      <!-- BOOKING WIDGET                                                        -->
+      <!-- The Cal.com inline embed fills the #booking-embed div below.          -->
+      <!-- See README → "Set up booking" for the 3-minute setup.                 -->
+      <!-- Until you set your calLink, visitors see the styled fallback + button.-->
+      <!-- ===================================================================== -->
+      <div id="booking-embed"></div>
+
+      <div class="book-fallback" id="book-fallback">
+        <div class="ph">
+          📅 &nbsp;Your booking calendar appears here once connected.<br>
+          Open <b>README.md</b> → <b>"Set up booking"</b> and paste your Cal.com link (takes ~3 min).
+        </div>
+        <!-- EDIT ME: replace href with your Cal.com / Calendly booking link -->
+        <a href="https://cal.com/beingabhishekmittal/30min" target="_blank" rel="noopener" class="btn btn-primary" style="margin:0 auto">
+          Open booking page
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="reveal">
+        <h4>Let's build something that lasts.</h4>
+        <!-- EDIT ME: your email -->
+        <a class="e" href="mailto:abhishekmittal@outlook.com">abhishekmittal@outlook.com</a>
+      </div>
+      <div class="foot-col reveal">
+        <div class="ch">Navigate</div>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#book">Book a session</a>
+      </div>
+      <div class="foot-col reveal">
+        <div class="ch">Elsewhere</div>
+        <!-- EDIT ME: your profile links -->
+        <a href="https://www.linkedin.com/in/beingabhishekmittal/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/BeingAbhishekMittal" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://medium.com/@beingabhishekmittal" target="_blank" rel="noopener">Blog ↗</a>
+        <a href="https://community.snowflake.com" target="_blank" rel="noopener">Snowflake Community ↗</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Abhishek Mittal. Built with care.</span>
+      <span>Strategic Data &amp; Analytics Architect · Snowflake Data Superhero</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- header scroll state ---------- */
+const header = document.getElementById('header');
+addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 30), {passive:true});
+
+/* ---------- mobile menu ---------- */
+const burger = document.getElementById('burger'), nav = document.getElementById('navlinks');
+burger.addEventListener('click', () => nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+
+/* ---------- year ---------- */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---------- scroll reveal ---------- */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+}, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = (i % 6) * 0.06 + 's';
+  io.observe(el);
+});
+
+/* ---------- hero node network (lightweight, reduced-motion safe) ---------- */
+(function(){
+  const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canvas = document.getElementById('node-canvas');
+  if (!canvas || prefersReduced || innerWidth < 720) { if(canvas) canvas.style.display='none'; return; }
+  const ctx = canvas.getContext('2d');
+  let w, h, nodes, raf;
+  const COUNT = 46, LINK = 150;
+  function size(){
+    w = canvas.width = canvas.offsetWidth * devicePixelRatio;
+    h = canvas.height = canvas.offsetHeight * devicePixelRatio;
+  }
+  function init(){
+    size();
+    nodes = Array.from({length:COUNT}, () => ({
+      x: Math.random()*w, y: Math.random()*h,
+      vx: (Math.random()-.5)*0.25*devicePixelRatio,
+      vy: (Math.random()-.5)*0.25*devicePixelRatio,
+      r: (Math.random()*1.6+0.6)*devicePixelRatio
+    }));
+  }
+  function tick(){
+    ctx.clearRect(0,0,w,h);
+    const link = LINK*devicePixelRatio;
+    for (let i=0;i<nodes.length;i++){
+      const n = nodes[i];
+      n.x+=n.vx; n.y+=n.vy;
+      if(n.x<0||n.x>w) n.vx*=-1;
+      if(n.y<0||n.y>h) n.vy*=-1;
+      for(let j=i+1;j<nodes.length;j++){
+        const m = nodes[j], dx=n.x-m.x, dy=n.y-m.y, d=Math.hypot(dx,dy);
+        if(d<link){
+          ctx.strokeStyle = 'rgba(12,132,160,'+(0.2*(1-d/link))+')';
+          ctx.lineWidth = devicePixelRatio*0.6;
+          ctx.beginPath(); ctx.moveTo(n.x,n.y); ctx.lineTo(m.x,m.y); ctx.stroke();
+        }
+      }
+      ctx.fillStyle='rgba(12,132,160,0.45)';
+      ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2); ctx.fill();
+    }
+    raf = requestAnimationFrame(tick);
+  }
+  init(); tick();
+  let to; addEventListener('resize', () => { clearTimeout(to); to=setTimeout(()=>{cancelAnimationFrame(raf);init();tick();},200); });
+})();
+
+/* ===================================================================== */
+/* BOOKING EMBED — Cal.com                                               */
+/* Set CAL_LINK to your booking link, e.g. "your-username/30min".        */
+/* Leave it null to keep showing the fallback button instead.            */
+/* See README → "Set up booking".                                        */
+/* ===================================================================== */
+const CAL_LINK = "beingabhishekmittal/30min"; // your Cal.com event link
+
+if (CAL_LINK) {
+  document.getElementById('book-fallback').style.display = 'none';
+  (function (C, A, L) {
+    let p = function (a, ar) { a.q.push(ar); };
+    let d = C.document;
+    C.Cal = C.Cal || function () {
+      let cal = C.Cal, ar = arguments;
+      if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+      if (ar[0] === L) { const api = function () { p(api, arguments); }; const ns = ar[1]; api.q = api.q || []; typeof ns === "string" ? (cal.ns[ns] = api) && p(api, ar) : p(cal, ar); return; }
+      p(cal, ar);
+    };
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+
+  Cal("init", { origin: "https://app.cal.com" });
+  Cal("inline", {
+    elementOrSelector: "#booking-embed",
+    calLink: CAL_LINK,
+    layout: "month_view"
+  });
+  Cal("ui", {
+    theme: "light",
+    cssVarsPerTheme: { light: { "cal-brand": "#0C84A0" } },
+    hideEventTypeDetails: false
+  });
+}
+</script>
+</body>
+</html>
